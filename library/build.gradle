@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+
+
+
+
+ext {
+    bintrayRepo = 'AdvancedSharedPreference' // your repo name
+    bintrayName = 'library' // has to be same as your library module name
+    publishedGroupId = 'com.advancedsharedpreference' // your module package name
+    libraryName = 'Advanced SharedPreference'
+    artifact = 'library' // has to be same as your library module name
+    libraryDescription = 'A set of methods used to manipulate time object'
+    siteUrl = 'https://github.com/androidCode/time-utils'
+    gitUrl = 'https://github.com/androidCode/time-utils.git'
+    libraryVersion = '1.0'
+    developerId = 'rasheedk'
+    developerName = 'Rasheed'
+    developerEmail = 'rasheedbengaluru@gmail.com'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.code.gson:gson:2.8.2'
+}
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/bintrayv.gradle'
